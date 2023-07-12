@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegacyWeb", "LegacyWeb.csproj", "{BBFD8322-F715-404B-BBE7-0A23A1B20EFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{D35E3B5D-60EC-4B71-8F01-AB62DF72A32D}"
+	ProjectSection(SolutionItems) = preProject
+		Database.Create.sql = Database.Create.sql
+		Database.Seed.sql = Database.Seed.sql
+		..\LegacyDatabase\LegacyHotel.dacpac = ..\LegacyDatabase\LegacyHotel.dacpac
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Legacy.Database.Console", "..\Legacy.Database.Console\Legacy.Database.Console.csproj", "{4351914F-6205-4564-9F92-2940AB78E5A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBFD8322-F715-404B-BBE7-0A23A1B20EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBFD8322-F715-404B-BBE7-0A23A1B20EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBFD8322-F715-404B-BBE7-0A23A1B20EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBFD8322-F715-404B-BBE7-0A23A1B20EFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4351914F-6205-4564-9F92-2940AB78E5A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4351914F-6205-4564-9F92-2940AB78E5A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4351914F-6205-4564-9F92-2940AB78E5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4351914F-6205-4564-9F92-2940AB78E5A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2966BC5-5BD0-493D-9A30-6A5976057174}
+	EndGlobalSection
+EndGlobal
