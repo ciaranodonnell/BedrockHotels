@@ -6,7 +6,7 @@ namespace Legacy.Database.Updater
 {
     internal class Program
     {
-
+        
         public static void Main(string[] args)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
