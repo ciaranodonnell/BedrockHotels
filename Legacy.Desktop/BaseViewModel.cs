@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace Legacy.Desktop
 {
-	internal class BaseViewModel : INotifyPropertyChanged
+	public class BaseViewModel : INotifyPropertyChanged
 	{
 		protected void PropertyChange<T>(ref T oldValue, T newValue, [CallerMemberName] string? propertyName = null)
 		{

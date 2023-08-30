@@ -54,6 +54,7 @@ namespace Legacy.Desktop.Login
 				{
 					this.Error = string.Empty;
 					this.IsLoggedIn = true;
+					navigationStore.GoBack();
 				}
 			}
 			catch (Exception ex)

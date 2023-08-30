@@ -1,4 +1,5 @@
-﻿using Legacy.Desktop.Login;
+﻿using Legacy.Desktop.Home;
+using Legacy.Desktop.Login;
 using Legacy.Desktop.Model;
 using Legacy.Desktop.Stores;
 using Microsoft.Extensions.Configuration;
@@ -17,16 +18,19 @@ namespace Legacy.Desktop
 		{
 			this.navigationStore = new NavigationStore();
 		}
+
 		override protected void OnStartup(StartupEventArgs e)
 		{
 			base.OnStartup(e);
 			var dbContext = GetDbContext();
 
-			this.navigationStore.CurrentViewModel = new LoginViewModel(dbContext, this.navigationStore);
+
+			this.navigationStore.NavigateTo(new HomeViewModel(dbContext, this.navigationStore));
+			this.navigationStore.NavigateTo(new LoginViewModel(dbContext, this.navigationStore));
 
 			var mainWindow = new MainWindow();
-			var mainViewModel = new MainViewModel(dbContext, this.navigationStore);
-			mainWindow.DataContext = mainViewModel;
+
+			mainWindow.DataContext = new MainViewModel(navigationStore);
 			mainWindow.Show();
 		}
 

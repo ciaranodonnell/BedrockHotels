@@ -1,33 +1,29 @@
-﻿using Legacy.Desktop.Login;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Legacy.Desktop.Admin;
+using Legacy.Desktop.Login;
+using Legacy.Desktop.Model;
+using Legacy.Desktop.Stores;
+using Microsoft.Expression.Interactivity.Core;
+using System.Windows.Input;
 
 namespace Legacy.Desktop.Home
 {
-    internal class HomeViewModel : BaseViewModel
-    {
-        private LoginViewModel login;
-        private bool isLoggedIn;
+	internal class HomeViewModel : BaseViewModel
+	{
+		private LoginViewModel login;
+		private bool isLoggedIn;
+		private LegacyDb dbContext;
+		private NavigationStore navigationStore;
 
-        public HomeViewModel(LoginViewModel login)
-        {
-            this.login = login;
-            this.login.PropertyChanged += Login_PropertyChanged;  
-        }
+		public HomeViewModel(LegacyDb dbContext, NavigationStore navigationStore)
+		{
+			this.dbContext = dbContext;
+			this.navigationStore = navigationStore;
+		}
 
-        private void Login_PropertyChanged(object? sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(LoginViewModel.IsLoggedIn))
-            {
-                this.IsLoggedIn = login.IsLoggedIn;
-            }
-        }
+		public ICommand UserAdminCommand { get => new ActionCommand(() => navigationStore.NavigateTo(new UserManagementViewModel(dbContext, navigationStore))); }
 
-        public LoginViewModel Login { get => login; private set => PropertyChange(login = value); }
-        public bool IsLoggedIn { get => isLoggedIn; private set => PropertyChange(isLoggedIn = value); }
-    }
+
+
+
+	}
 }

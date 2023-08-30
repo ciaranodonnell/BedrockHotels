@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Legacy.Desktop"
         xmlns:login="clr-namespace:Legacy.Desktop.Login"
         xmlns:home="clr-namespace:Legacy.Desktop.Home"
+        xmlns:admin="clr-namespace:Legacy.Desktop.Admin"
         xmlns:conv="clr-namespace:Legacy.Desktop.Converters"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -20,6 +21,9 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type home:HomeViewModel}">
                 <home:HomeControl  />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type admin:UserManagementViewModel}">
+                <admin:UserManagementView />
             </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}" />

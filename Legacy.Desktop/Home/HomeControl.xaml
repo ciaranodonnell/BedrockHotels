@@ -63,7 +63,7 @@
         </StackPanel>
         <TextBlock Grid.Row="2">Administration</TextBlock>
         <StackPanel Grid.Row="3" Orientation="Horizontal" >
-            <Button Style="{StaticResource FlowButton}">
+            <Button Style="{StaticResource FlowButton}" Command="{Binding UserAdminCommand}">
                 <Button.Content>
                     <StackPanel Orientation="Vertical">
                         <Image Source="{DynamicResource UserAdmin}" Height="40px" />
