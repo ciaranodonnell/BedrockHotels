@@ -3,7 +3,7 @@ using Microsoft.Expression.Interactivity.Core;
 using System;
 using System.Windows.Input;
 
-namespace Legacy.Desktop.Admin
+namespace Legacy.Desktop.Admin.Users
 {
 	internal class UserViewModel : BaseViewModel
 	{
@@ -14,16 +14,16 @@ namespace Legacy.Desktop.Admin
 
 		public UserViewModel(LegacyDb legacyDb)
 		{
-			this.IsDirty = true;
+			IsDirty = true;
 			user = new User();
-			this.isEditing = true;
-			this.db = legacyDb;
+			isEditing = true;
+			db = legacyDb;
 		}
 
 		public UserViewModel(User u, LegacyDb legacyDb)
 		{
-			this.user = u;
-			this.db = legacyDb;
+			user = u;
+			db = legacyDb;
 		}
 
 
@@ -31,7 +31,7 @@ namespace Legacy.Desktop.Admin
 
 		public string Username { get => user.Username; set { PropertyChange(user.Username = value); IsDirty = true; } }
 		public string Name { get => user.Name; set { PropertyChange(user.Name = value); IsDirty = true; } }
-		public string? Password { get => this.passwordBuffer; set { PropertyChange(ref passwordBuffer, value); IsDirty = true; } }
+		public string? Password { get => passwordBuffer; set { PropertyChange(ref passwordBuffer, value); IsDirty = true; } }
 		public DateTime? DeletedDate { get => user.DeletedDate; set { PropertyChange(user.DeletedDate = value); IsDirty = true; } }
 
 
@@ -58,7 +58,7 @@ namespace Legacy.Desktop.Admin
 		public bool CanSave
 		{
 			get =>
-				!string.IsNullOrEmpty(this.Username) && !string.IsNullOrEmpty(this.Name) && IsDirty;
+				!string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Name) && IsDirty;
 		}
 
 
@@ -68,23 +68,23 @@ namespace Legacy.Desktop.Admin
 
 		private void Save()
 		{
-			if (this.IsDirty)
+			if (IsDirty)
 			{
 				if (user.UserId == 0)
 				{
-					user.Password = Convert.ToBase64String(User.HashPassword(this.Password!));
+					user.Password = Convert.ToBase64String(User.HashPassword(Password!));
 					db.Users.Add(user);
 				}
 				else
 				{
-					if (!string.IsNullOrEmpty(this.Password))
+					if (!string.IsNullOrEmpty(Password))
 					{
-						user.Password = Convert.ToBase64String(User.HashPassword(this.Password));
+						user.Password = Convert.ToBase64String(User.HashPassword(Password));
 					}
 				}
 				db.SaveChanges();
-				this.IsDirty = false;
-				this.IsEditing = false;
+				IsDirty = false;
+				IsEditing = false;
 				passwordBuffer = null;
 			}
 		}
@@ -100,8 +100,8 @@ namespace Legacy.Desktop.Admin
 			{
 				db.Entry(user).Reload();
 			}
-			this.IsEditing = false;
-			this.IsDirty = false;
+			IsEditing = false;
+			IsDirty = false;
 			passwordBuffer = null;
 		}
 
@@ -109,7 +109,7 @@ namespace Legacy.Desktop.Admin
 
 		private void Edit()
 		{
-			this.IsEditing = true;
+			IsEditing = true;
 		}
 
 	}

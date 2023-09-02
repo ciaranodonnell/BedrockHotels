@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 
-namespace Legacy.Desktop.Admin
+namespace Legacy.Desktop.Admin.Users
 {
 	internal class UserManagementViewModel : BaseViewModel
 	{
@@ -18,7 +18,7 @@ namespace Legacy.Desktop.Admin
 
 		public UserManagementViewModel(LegacyDb legacyDb, NavigationStore navigationStore)
 		{
-			this.db = legacyDb;
+			db = legacyDb;
 			this.navigationStore = navigationStore;
 			LoadUsers();
 		}

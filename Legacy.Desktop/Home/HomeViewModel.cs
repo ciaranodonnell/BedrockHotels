@@ -1,4 +1,4 @@
-﻿using Legacy.Desktop.Admin;
+﻿using Legacy.Desktop.Admin.Users;
 using Legacy.Desktop.Login;
 using Legacy.Desktop.Model;
 using Legacy.Desktop.Stores;
