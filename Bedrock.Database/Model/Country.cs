@@ -10,4 +10,6 @@ public partial class Country
     public string Name { get; set; } = null!;
 
     public string CountryCode { get; set; } = null!;
+
+    public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
 }

@@ -5,6 +5,7 @@ namespace Bedrock.Database.Model;
 public partial class LegacyDb : DbContext
 {
 
+
 	public virtual DbSet<Address> Addresses { get; set; }
 
 	public virtual DbSet<Country> Countries { get; set; }
@@ -22,7 +23,6 @@ public partial class LegacyDb : DbContext
 	public virtual DbSet<Stay> Stays { get; set; }
 
 	public virtual DbSet<User> Users { get; set; }
-
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
@@ -60,13 +60,16 @@ public partial class LegacyDb : DbContext
 			entity.Property(e => e.Town)
 				.HasMaxLength(200)
 				.IsUnicode(false);
+
+			entity.HasOne(d => d.Country).WithMany(p => p.Addresses)
+				.HasForeignKey(d => d.CountryId)
+				.HasConstraintName("FK_Address_Country");
 		});
 
 		modelBuilder.Entity<Country>(entity =>
 		{
 			entity.ToTable("Country");
 
-			entity.Property(e => e.CountryId).ValueGeneratedNever();
 			entity.Property(e => e.CountryCode)
 				.HasMaxLength(50)
 				.IsUnicode(false);
@@ -80,9 +83,14 @@ public partial class LegacyDb : DbContext
 			entity.ToTable("Employee");
 
 			entity.Property(e => e.DateOfBirth).HasColumnType("date");
-			entity.Property(e => e.EmailAddress).HasMaxLength(100);
+			entity.Property(e => e.EmailAddress)
+				.HasMaxLength(200)
+				.IsUnicode(false);
 			entity.Property(e => e.FirstName).HasMaxLength(50);
 			entity.Property(e => e.HiredDate).HasColumnType("date");
+			entity.Property(e => e.JobTitle)
+				.HasMaxLength(200)
+				.IsUnicode(false);
 			entity.Property(e => e.LastName).HasMaxLength(50);
 			entity.Property(e => e.LeaveDate).HasColumnType("date");
 
@@ -153,7 +161,7 @@ public partial class LegacyDb : DbContext
 		{
 			entity.ToTable("RoomType");
 
-			entity.Property(e => e.Description).HasMaxLength(500);
+			entity.Property(e => e.Description).IsUnicode(false);
 			entity.Property(e => e.MaxOccupancy).HasDefaultValueSql("((2))");
 			entity.Property(e => e.Name)
 				.HasMaxLength(50)

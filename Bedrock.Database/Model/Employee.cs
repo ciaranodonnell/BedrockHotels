@@ -15,11 +15,13 @@ public partial class Employee
 
     public DateTime? DateOfBirth { get; set; }
 
-    public byte[]? EmailAddress { get; set; }
+    public string? EmailAddress { get; set; }
 
     public DateTime? HiredDate { get; set; }
 
     public DateTime? LeaveDate { get; set; }
+
+    public string? JobTitle { get; set; }
 
     public virtual Address? Address { get; set; }
 

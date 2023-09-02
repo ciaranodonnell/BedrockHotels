@@ -29,6 +29,8 @@ public partial class Address
 
     public string? EmailAddress2 { get; set; }
 
+    public virtual Country? Country { get; set; }
+
     public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
 
     public virtual ICollection<Hotel> Hotels { get; set; } = new List<Hotel>();
