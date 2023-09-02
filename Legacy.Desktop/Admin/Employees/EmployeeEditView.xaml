@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Legacy.Desktop.Admin.Employees.EmployeeEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:converters="clr-namespace:Legacy.Desktop.Converters"
+              xmlns:local="clr-namespace:Legacy.Desktop.Admin.Employees"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="10,10,0,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox" >
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="200"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="MinWidth" Value="70"/>
+        </Style>
+        <converters:BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <converters:BooleanToVisibilityReverseConverter x:Key="BoolToVisRev" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1">
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Target="{Binding ElementName=firstNameTextBox}"/>
+        <TextBox x:Name="firstNameTextBox" Text="{Binding FirstName}" />
+        </StackPanel>
+        <StackPanel Grid.Column="3">
+            <Label Content="Last Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Target="{Binding ElementName=lastNameTextBox}"/>
+            <TextBox x:Name="lastNameTextBox" Text="{Binding LastName}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="Job Title"  Target="{Binding ElementName=jobTitleTextBox}"/>
+            <TextBox x:Name="jobTitleTextBox" Text="{Binding JobTitle}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="3">
+            <Label Content="Date of Birth"  Target="{Binding ElementName=dobDatePicker}"/>
+            <DatePickerTextBox x:Name="dobDatePicker" Text="{Binding DateOfBirth}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right">
+        <Button Content="Edit" Command="{Binding EditCommand}" />
+        <Button Content="Cancel" Command="{Binding CancelCommand}" />
+        <Button Content="Save" Command="{Binding SaveCommand}" />
+    </StackPanel>
+    </Grid>
+
+   
+</UserControl>

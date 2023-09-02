@@ -30,10 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Admin\Employee\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Bedrock.Database\Bedrock.Database.csproj" />
   </ItemGroup>
 
