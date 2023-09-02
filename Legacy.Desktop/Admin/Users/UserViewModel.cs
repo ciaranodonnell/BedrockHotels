@@ -1,4 +1,4 @@
-﻿using Legacy.Desktop.Model;
+﻿using Bedrock.Database.Model;
 using Microsoft.Expression.Interactivity.Core;
 using System;
 using System.Windows.Input;

@@ -14,7 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{D3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Legacy.Database.Console", "..\Legacy.Database.Console\Legacy.Database.Console.csproj", "{4351914F-6205-4564-9F92-2940AB78E5A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Legacy.Desktop", "..\Legacy.Desktop\Legacy.Desktop.csproj", "{238F34A6-64D9-45B0-8684-E02A824A86C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Legacy.Desktop", "..\Legacy.Desktop\Legacy.Desktop.csproj", "{238F34A6-64D9-45B0-8684-E02A824A86C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bedrock.Database", "..\Bedrock.Database\Bedrock.Database.csproj", "{BD4BEFA1-C36D-4039-ADCC-9167331381BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +36,10 @@ Global
 		{238F34A6-64D9-45B0-8684-E02A824A86C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{238F34A6-64D9-45B0-8684-E02A824A86C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{238F34A6-64D9-45B0-8684-E02A824A86C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD4BEFA1-C36D-4039-ADCC-9167331381BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4BEFA1-C36D-4039-ADCC-9167331381BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4BEFA1-C36D-4039-ADCC-9167331381BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4BEFA1-C36D-4039-ADCC-9167331381BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

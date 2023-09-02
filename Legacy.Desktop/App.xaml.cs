@@ -1,6 +1,6 @@
 ﻿using Legacy.Desktop.Home;
 using Legacy.Desktop.Login;
-using Legacy.Desktop.Model;
+using Bedrock.Database.Model;
 using Legacy.Desktop.Stores;
 using Microsoft.Extensions.Configuration;
 using System.Windows;

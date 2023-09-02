@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Legacy.Desktop.Model;
+namespace Bedrock.Database.Model;
 
 public partial class Room
 {

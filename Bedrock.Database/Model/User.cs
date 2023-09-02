@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace Legacy.Desktop.Model;
+namespace Bedrock.Database.Model;
 
 public partial class User
 {
-    [Key]
     public int UserId { get; set; }
 
     public string Username { get; set; } = null!;
@@ -16,4 +14,8 @@ public partial class User
     public string Name { get; set; } = null!;
 
     public DateTime? DeletedDate { get; set; }
+
+    public bool? IsAdmin { get; set; }
+
+    public int? EmployeeId { get; set; }
 }

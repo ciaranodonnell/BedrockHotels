@@ -1,4 +1,4 @@
-﻿using Legacy.Desktop.Model;
+﻿using Bedrock.Database.Model;
 using Legacy.Desktop.Stores;
 using Microsoft.Expression.Interactivity.Core;
 using System;

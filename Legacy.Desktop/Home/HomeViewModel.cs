@@ -1,6 +1,6 @@
-﻿using Legacy.Desktop.Admin.Users;
+﻿using Bedrock.Database.Model;
+using Legacy.Desktop.Admin.Users;
 using Legacy.Desktop.Login;
-using Legacy.Desktop.Model;
 using Legacy.Desktop.Stores;
 using Microsoft.Expression.Interactivity.Core;
 using System.Windows.Input;
