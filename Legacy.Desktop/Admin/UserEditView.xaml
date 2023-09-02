@@ -3,10 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Legacy.Desktop.Admin"
+             xmlns:local="clr-namespace:Legacy.Desktop.Admin" xmlns:converters="clr-namespace:Legacy.Desktop.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <converters:BooleanToVisibilityReverseConverter x:Key="BoolToVisRev" />
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="MinWidth" Value="70"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
+            <Label Target="{Binding ElementName=userNameTextBox}" Content="User Name"  MinWidth="200px" />
+            <TextBox Text="{Binding Username}" Name="userNameTextBox" MinWidth="200px"  IsEnabled="{Binding IsEditing}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="3" Grid.Row="0">
+            <Label Target="{Binding ElementName=nameTextBox}" Content="Name"  Grid.Row="1"/>
+            <TextBox Text="{Binding Name}" Name="nameTextBox" IsEnabled="{Binding IsEditing}" />
+        </StackPanel>
+    
+        <StackPanel Orientation="Vertical" Grid.Column="1"  Grid.Row="1">
+            <Label Target="{Binding ElementName=passwordBox}" Content="Password" />
+            <TextBox Text="{Binding Password}" Name="passwordBox"  IsEnabled="{Binding IsEditing}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="3"  Grid.Row="1">
+            <Label Target="{Binding ElementName=isDeletedBox}" Content="Is Deleted" />
+            <CheckBox IsChecked="{Binding Deleted}" Name="isDeletedBox" IsEnabled="{Binding IsEditing}"/>
+            <TextBlock Text="{Binding DeletedDate, StringFormat='dd MMM yyyy'}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
+            <Button Visibility="{Binding IsEditing, Converter={StaticResource BoolToVisRev}}" Name="EditButton" Command="{Binding EditCommand}" Content="Edit" />
+            <Button Visibility="{Binding IsEditing, Converter={StaticResource BoolToVis}}" Name="SaveButton" Command="{Binding SaveCommand}" Content="Save" />
+            <Button Visibility="{Binding IsEditing, Converter={StaticResource BoolToVis}}" Name="CancelButton" Command="{Binding CancelEditingCommand}"  Content="Cancel" />
+        </StackPanel>
     </Grid>
 </UserControl>

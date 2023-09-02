@@ -29,7 +29,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Row="2">
-            <Button Content="Add" Command="{Binding AddUserCommand}" />
+            <Button Content="Add" Command="{Binding AddNewUserCommand}" />
         </StackPanel>
 
         <local:UserEditView Grid.Column="1" Grid.Row="1" DataContext="{Binding SelectedUser}" />

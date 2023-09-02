@@ -36,7 +36,7 @@ namespace Legacy.Desktop.Admin
 			}
 		}
 
-		public ICommand AddNewUser { get => new ActionCommand(AddNewUserAction); }
+		public ICommand AddNewUserCommand { get => new ActionCommand(AddNewUserAction); }
 		public UserViewModel SelectedUser { get => selectedUser; set => PropertyChange(ref selectedUser, value); }
 
 		private void AddNewUserAction()
