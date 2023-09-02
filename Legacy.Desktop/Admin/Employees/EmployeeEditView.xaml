@@ -62,11 +62,25 @@
             <Label Content="Date of Birth"  Target="{Binding ElementName=dobDatePicker}"/>
             <DatePickerTextBox x:Name="dobDatePicker" Text="{Binding DateOfBirth}" />
         </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Label Content="Hired Date"  Target="{Binding ElementName=hiredDatePicker}"/>
+            <DatePickerTextBox x:Name="hiredDatePicker" Text="{Binding HiredDate}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="3">
+            <Label Content="Leave Date"  Target="{Binding ElementName=leaveDatePicker}"/>
+            <DatePickerTextBox x:Name="leaveDatePicker" Text="{Binding LeaveDate}" />
+        </StackPanel>
+
+        <local:EmployeeAddressView DataContext="{Binding Address}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" />
+
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right">
-        <Button Content="Edit" Command="{Binding EditCommand}" />
-        <Button Content="Cancel" Command="{Binding CancelCommand}" />
-        <Button Content="Save" Command="{Binding SaveCommand}" />
-    </StackPanel>
+            <Button Visibility="{Binding IsEditing, Converter={StaticResource BoolToVisRev}}" Name="EditButton" Command="{Binding EditCommand}" Content="Edit" />
+            <Button Visibility="{Binding IsEditing, Converter={StaticResource BoolToVis}}" Name="SaveButton" Command="{Binding SaveCommand}" Content="Save" IsEnabled="{Binding CanSave}" />
+            <Button Visibility="{Binding IsEditing, Converter={StaticResource BoolToVis}}" Name="CancelButton" Command="{Binding CancelEditingCommand}"  Content="Cancel" />
+
+        </StackPanel>
     </Grid>
 
    

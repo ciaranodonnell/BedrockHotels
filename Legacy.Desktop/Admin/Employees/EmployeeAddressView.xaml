@@ -7,6 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="Address 1"  Target="{Binding ElementName=address1TextBox}"/>
+            <TextBox x:Name="address1TextBox" Text="{Binding Address1}" TextChanged="address1TextBox_TextChanged" />
+        </StackPanel>
     </Grid>
 </UserControl>

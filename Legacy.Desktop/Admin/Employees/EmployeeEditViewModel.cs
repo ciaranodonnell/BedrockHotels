@@ -31,13 +31,13 @@ namespace Legacy.Desktop.Admin.Employees
 
 		public bool IsDirty { get; set; }
 
-		public string? Firstname { get => employee.FirstName; set { PropertyChange(employee.FirstName = value); IsDirty = true; } }
-		public string? Lastname { get => employee.LastName; set { PropertyChange(employee.LastName = value); IsDirty = true; } }
+		public string? Firstname { get => employee.FirstName; set { PropertyChange(employee.FirstName = value); IsDirty = true; PropertyChange(nameof(CanSave)); } }
+		public string? Lastname { get => employee.LastName; set { PropertyChange(employee.LastName = value); IsDirty = true; PropertyChange(nameof(CanSave)); } }
 
-		public DateTime? HiredDate { get => employee.HiredDate; set { PropertyChange(employee.HiredDate = value); IsDirty = true; } }
+		public DateTime? HiredDate { get => employee.HiredDate; set { PropertyChange(employee.HiredDate = value); IsDirty = true; PropertyChange(nameof(CanSave)); } }
 		public DateTime? LeaveDate { get => employee.LeaveDate; set { PropertyChange(employee.LeaveDate = value); IsDirty = true; } }
 
-		public DateTime? DateOfBirth { get => employee.DateOfBirth; set { PropertyChange(employee.DateOfBirth = value); IsDirty = true; } }
+		public DateTime? DateOfBirth { get => employee.DateOfBirth; set { PropertyChange(employee.DateOfBirth = value); IsDirty = true; PropertyChange(nameof(CanSave)); } }
 		public string? EmailAddress { get => employee.EmailAddress; set { PropertyChange(employee.EmailAddress = value); IsDirty = true; } }
 		public string? JobTitle { get => employee.JobTitle; set { PropertyChange(employee.JobTitle = value); IsDirty = true; } }
 		public EmployeeAddressViewModel Address { get => address; }
