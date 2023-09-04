@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-WebApplication1-0c6a723b-595e-40ce-9889-dc5830bbad04</UserSecretsId>
@@ -10,12 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.15" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.15" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.15" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bedrock.Database\Bedrock.Database.csproj" />
   </ItemGroup>
 
 </Project>
