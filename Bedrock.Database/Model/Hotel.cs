@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Bedrock.Database.Model;
+﻿namespace Bedrock.Database.Model;
 
 public partial class Hotel
 {
@@ -13,6 +10,11 @@ public partial class Hotel
 
     public int? ManagerId { get; set; }
 
+    public int? CurrencyId { get; set; }
+
+    public string? MainPictureUrl { get; set; }
+
+    public DateTime? CloseDate { get; set; }
     public virtual Address Address { get; set; } = null!;
 
     public virtual Employee? Manager { get; set; }

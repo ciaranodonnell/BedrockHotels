@@ -7,17 +7,18 @@ namespace Bedrock.Database.Model
 		private string connectionString;
 
 		public LegacyDb(string connectionString)
+			: base(new DbContextOptionsBuilder<LegacyDb>().UseSqlServer(connectionString).Options)
 		{
-			this.connectionString = connectionString;
+
 		}
 
-		public LegacyDb(string connectionString, DbContextOptions<LegacyDb> options)
+		public LegacyDb(DbContextOptions<LegacyDb> options)
 			: base(options)
 		{
-			this.connectionString = connectionString;
+
 		}
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer(this.connectionString);
+
 
 	}
 }

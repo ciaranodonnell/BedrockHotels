@@ -16,3 +16,44 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+.hotelListContainer {
+    width: 100%;
+    
+    -ms-flex: inherit;
+    -webkit-flex: inherit;
+    flex: inherit;
+    background-color: rgb(250,250,250);
+}
+
+.hotelTile{
+    display:inline-block;
+    width:300px;
+    background-color:white;
+    height:200px;
+    margin:10px;
+    border-radius:5px;
+    overflow:hidden;
+    position:relative;
+}
+
+    .hotelTile img {
+        
+        width: 100%;
+        border-radius: 5px;
+        position: absolute;
+    }
+
+    .hotelTile div {
+        padding: 10px;
+        width: 100%;
+        height: 40%;
+        bottom:0;
+        position: absolute;
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+        .hotelTile div h2 {
+            margin: 0;
+        }

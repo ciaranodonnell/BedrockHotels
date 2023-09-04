@@ -1,10 +1,23 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Bedrock Hotels - Home";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome To Bedrock Hotel Group</h1>
+    <p>We have premium hotels around the global that cater to exclusive clientelle.</p>
+</div>
+<div class="hotelListContainer">
+    @foreach (var hotel in Model.Hotels)
+    {
+        <div class="hotelTile col">
+            <img  src="@hotel.MainPictureUrl" />
+            <div>
+                <h2>@hotel.Name</h2>
+                <p class="hotelAddress">@hotel.Address.Town, @hotel.Address.Country?.Name</p>
+            </div>
+        </div>
+
+    }
 </div>
