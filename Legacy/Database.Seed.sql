@@ -62,6 +62,16 @@ DECLARE @RobsAddressId INT = SCOPE_IDENTITY()
 INSERT INTO Employee (   [FirstName]      ,[LastName]      ,[AddressId]      ,[DateOfBirth]      ,[EmailAddress]      ,[HiredDate]      ,[LeaveDate], JobTitle)
 VALUES ( 'Rob', 'Carroll', @RobsAddressId, '1998-01-01', 'robcarroll@bedrock.com', '2017-01-01', NULL, 'Manager')
 
+
+
+INSERT INTO [dbo].[Address] ([Address1],[Address2],[Address3],[Town],[CountryId],[PostalCode]
+                            ,[PhoneNumber],[PhoneNumber2],[FaxNumber],[EmailAddress],[EmailAddress2])
+     VALUES ('1 Pierre St', NULL, NULL, 'Paris', 1, '5488', '',NULL,'','pierre@odonnell.com',NULL)
+DECLARE @PierreAddressId INT = SCOPE_IDENTITY()
+
+INSERT INTO Employee (   [FirstName]      ,[LastName]      ,[AddressId]      ,[DateOfBirth]      ,[EmailAddress]      ,[HiredDate]      ,[LeaveDate], JobTitle)
+VALUES ( 'Pierre', 'Baptist', @PierreAddressId , '1999-02-01', 'pierre@bedrock.com', '2017-01-01', NULL, 'Manager')
+
 GO
 
 
@@ -76,9 +86,10 @@ DECLARE @BRLNAddressId INT = SCOPE_IDENTITY()
      
 
 
-INSERT INTO [dbo].[Hotel]            ([Name]           ,[AddressId]           ,[ManagerId], CloseDate, [Description], MainPictureUrl)
+INSERT INTO [dbo].[Hotel]            ([Name]           ,[AddressId]           ,[ManagerId], CloseDate, [Description], MainPictureUrl, CurrencyId)
      VALUES ('Bedrock London', @BRLNAddressId , (SELECT EmployeeId FROM Employee WHERE EmailAddress='ciaran@odonnell.com') , null, 
-     'When in London, stay at a hotel as famous as Buckingham Palace (but without those pesky corgis). No offense to Buckingham Palace, though – we are good neighbours. Drop off your suitcase at citizenM London Victoria Station and go wave at the Beefeaters (trust us, they love it), try on some outrageous outfits on Carnaby Street, and find the Seven Noses of Soho. After all this, your eyes will need a rest. It''s a good thing you booked the most comfortable bed in London.','/Images/Hotels/London.png')
+     'When in London, stay at a hotel as famous as Buckingham Palace (but without those pesky corgis). No offense to Buckingham Palace, though – we are good neighbours. Drop off your suitcase at Bedrock London by London Victoria Station and go wave at the Beefeaters (trust us, they love it), try on some outrageous outfits on Carnaby Street, and find the Seven Noses of Soho. After all this, your eyes will need a rest. It''s a good thing you booked the most comfortable bed in London.'
+     ,'/Images/Hotels/London.png', /* CurrencyId = */ 1)
 
 
          
@@ -87,16 +98,34 @@ INSERT INTO [dbo].[Address] ([Address1],[Address2],[Address3],[Town],[CountryId]
      VALUES ('599 Broadway', NULL, NULL, 'New York', 1, '10010', '212-555-1234',NULL,'212-555-1235','newyork@bedrock.com',NULL)
 DECLARE @BRNYAddressId INT = SCOPE_IDENTITY()
 
-INSERT INTO [dbo].[Hotel]            ([Name]           ,[AddressId]           ,[ManagerId], CloseDate, [Description])
+INSERT INTO [dbo].[Hotel]            ([Name]           ,[AddressId]           ,[ManagerId], CloseDate, [Description], MainPictureUrl, CurrencyId)
      VALUES ('Bedrock New York', @BRNYAddressId, (SELECT EMPLOYEEID FROM EMPLOYEE WHERE EMAIL = 'robcarroll@bedrock.com'), null, 
      '<P>Bedrock New York has a fitness centre, shared lounge, a terrace and bar in New York. With free WiFi, this 5-star hotel offers room service and a 24-hour front desk. The property is non-smoking and is situated 1.3 km from National September 11 Memorial & Museum.</P>
 <P>Rooms include a desk and a TV, and some rooms at the hotel have a balcony. The rooms will provide guests with a minibar.</P>
 <P>At Bedrock New York you will find a restaurant serving American, Italian and Seafood cuisine. Vegetarian, dairy-free and kosher options can also be requested.</P>
 <P>The accommodation offers 5-star accommodation with a sauna.</P>
 <P>One World Trade Center is 1.5 km from Bedrock New York, while Brooklyn Bridge is 2.9 km from the property. The nearest airport is LaGuardia Airport, 18 km from the hotel.</P>'
-,'/Images/Hotels/NewYork.png')
+,'/Images/Hotels/NewYork.png', 2)
 GO
 
+
+
+INSERT INTO [dbo].[Address] ([Address1],[Address2],[Address3],[Town],[CountryId],[PostalCode]
+                            ,[PhoneNumber],[PhoneNumber2],[FaxNumber],[EmailAddress],[EmailAddress2])
+     VALUES ('1 Rue du Paris', NULL, NULL, 'Paris', 2, '4648', '54 54 8787',NULL,'45 54 7897','paris@bedrockhotels.com',NULL)
+DECLARE @BRPFAddressId INT = SCOPE_IDENTITY()
+     
+
+
+INSERT INTO [dbo].[Hotel]            ([Name]           ,[AddressId]           ,[ManagerId], CloseDate, [Description], MainPictureUrl, CurrencyId)
+     VALUES ('Grand Paris Bedrock', @BRPFAddressId , (SELECT EmployeeId FROM Employee WHERE EmailAddress='pierre@odonnell.com') , null, 
+     'located in Paris City Center, a neighborhood in Paris, and is near a metro station. Carnavalet Museum and Picasso Museum are cultural highlights, and some of the area''s notable landmarks include Place des Vosges and Place de la Bastille. Traveling with kids? Don''t miss Tuileries Garden.',
+     '/Images/Hotels/Paris.png', 3)
+
+GO
+
+
+GO
 
 
 ------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,24 @@
+﻿@page "/hotel/{hotelId:int}/{hotelName}"
+@model HotelModel
+@{
+    ViewData["Title"] = "Bedrock Hotels - @Model.Hotel.Name";
+}
+<h1>@Model.Hotel.Name</h1>
+<img src="@Model.Hotel.MainPictureUrl" />
+
+<a href="/reserve/@Model.Hotel.HotelId">Reserve a room</a>
+
+<h2>Description:</h2>
+<p>@Model.Hotel.Description</p>
+
+<section class="carousel">
+    <div class="reel">
+    @foreach(var picture in Model.Hotel.HotelPictures)
+    {
+            <article>
+                <a href="#" class="image featured">   <img src="@picture.Url" /></a>
+                <p>@picture.Description</p>
+            </article>
+    }
+    </div>
+</section>

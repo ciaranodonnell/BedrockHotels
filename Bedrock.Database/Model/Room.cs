@@ -18,4 +18,6 @@ public partial class Room
     public virtual Hotel? Hotel { get; set; }
 
     public virtual RoomType? RoomType { get; set; }
+
+    public virtual ICollection<Stay> Stays { get; set; } = new List<Stay>();
 }

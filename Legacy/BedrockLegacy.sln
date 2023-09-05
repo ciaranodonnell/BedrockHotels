@@ -16,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Legacy.Database.Console", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Legacy.Desktop", "..\Legacy.Desktop\Legacy.Desktop.csproj", "{238F34A6-64D9-45B0-8684-E02A824A86C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bedrock.Database", "..\Bedrock.Database\Bedrock.Database.csproj", "{BD4BEFA1-C36D-4039-ADCC-9167331381BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bedrock.Database", "..\Bedrock.Database\Bedrock.Database.csproj", "{BD4BEFA1-C36D-4039-ADCC-9167331381BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
